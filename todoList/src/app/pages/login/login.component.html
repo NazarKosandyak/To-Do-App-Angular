@@ -1,0 +1,56 @@
+<main class="box">
+    <div class="head">
+        <p class="createText">Create Account</p>
+        <p class="createText__sub">Let’s get productive toghether!</p>
+    </div>
+    <div class="loginBox">
+        <form [formGroup]="userForm">
+            <div class="stepOne">
+                <div class="mb-3 setWidth both">
+                    <label for="exampleFormControlInput1" class="form-label">Full Name *</label>
+                    <input formControlName = "name" name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter name...">
+                  </div>
+                  <div class="mb-3 setWidth both">
+                    <label for="exampleFormControlInput1" class="form-label">Username *</label>
+                    <input formControlName = "username" name="username" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter username...">
+                  </div>  
+            </div>
+            <div class="stepTwo">
+                <div class="mb-3 setWidth both">
+                    <label for="exampleFormControlInput1" class="form-label">Email *</label>
+                    <input #emailInput formControlName="email" name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter email...">
+                    <span class="checkField" *ngIf="checkField">Please enter a valid email address</span>
+                  </div>
+                  <div class="mb-3 setWidth both">
+                    <label for="exampleFormControlInput1" class="form-label">Phone number *</label>
+                    <input #phoneInput formControlName="phone" name="phone" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter phone number...">
+                    <span class="checkField" *ngIf="checkPhoneField">Please enter a valid phone number</span>
+                  </div>  
+            </div>
+            <div class="stepThree">
+                <div class="mb-3 addressLine both">
+                    <label for="exampleFormControlInput1" class="form-label">Address line *</label>
+                    <input formControlName = "street" name="street" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter address line...">
+                  </div>
+                  <div class="mb-3 suite  both">
+                    <label for="exampleFormControlInput1" class="form-label">Suite</label>
+                    <input formControlName ="suite" name="suite" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter suite...">
+                  </div>  
+            </div>
+            <div class="stepFour">
+                <div class="mb-3 setWidth both">
+                    <label for="exampleFormControlInput1" class="form-label">City *</label>
+                    <input formControlName = "city" name="city" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter address line...">
+                  </div>
+                  <div class="mb-3  setWidth both">
+                    <label for="exampleFormControlInput1" class="form-label">ZIP Code *</label>
+                    <input formControlName = "zipcode" name="zipcode" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter suite...">
+                  </div>  
+            </div>
+            <div class="btn">
+                <button (click)="createUser()">Create Account</button>
+                <div class="arrow"></div>
+            </div>
+        </form>
+    </div>
+</main>
