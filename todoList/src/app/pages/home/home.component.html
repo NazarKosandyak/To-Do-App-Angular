@@ -1,21 +1,61 @@
-<main>
+<main #main>
     <div class="title">
         <p>All ToDo’s</p>
         <div class="btn">
-            <button>Add a ToDo</button>
+            <button (click)="openAdd()">Add a ToDo</button>
             <div class="cross"></div>
         </div>
     </div>
-    <div class="list">
-        <div class="task">
-          
-            <input type="checkbox" class="checkbox" id="check">
-            <label for="check"></label>
-            <div class="description"></div>
+    <div class="list" >
+        <div class="task" *ngFor="let item of dataTask;index as i">
+            <input  #checkBox type="checkbox" (click)="checkMyBox(item)" class="checkbox"  id="check">
+            <div class="description" #title [ngClass]="{'done': !item.completed, 'perform': item.completed}">{{item.title}}</div>
             <div class="buttonGroup">
-                <a href="#"><img class="edit" src="../../../assets/edit.png" alt=""></a>
-                <a href="#"><img class="remove" src="../../../assets/remove.png" alt=""></a>
+                <button (click)="editTask(item)"><img class="edit" src="../../../assets/edit.png" alt=""></button>
+                <button (click)="showDelete(item)"><img class="remove" src="../../../assets/remove.png" alt=""></button>
             </div>
         </div>
     </div>
+
+   <div class="modelAdd" *ngIf="checkClose">
+       <div class="head">
+           <p>Add a ToDo</p>
+           <button (click)="close()" class="close"></button>
+       </div>
+       <div class="setDescription">
+           <textarea [(ngModel)]="dataTextarea" name="dataTextarea" placeholder="Start typing ..."></textarea>
+       </div>
+            <div class="saveTodoDiv">
+                <button (click)="add()" class="saveTodo">Save ToDo</button>
+                <img class="arrow" src="../../../assets/Vector.png" alt="">
+            </div>
+   </div> 
+
+   <div class="modalEdit" *ngIf="checkEdit">
+    <div class="head">
+        <p>Edit a ToDo</p>
+        <button (click)=" closeEdit()" class="close"></button>
+    </div>
+    <div class="setDescription">
+        <textarea [(ngModel)]="newTask" name="dataTextarea" placeholder="Start typing ..."></textarea>
+    </div>
+    <div class="saveTodoDiv">
+        <button (click)="saveEdit()" class="saveTodo">Save ToDo</button>
+        <img class="arrow" src="../../../assets/Vector.png" alt="">
+    </div>
+   </div>
+   <div class="modalDelete" *ngIf="checkDelete">
+    <div class="head">
+        <p>Removing a ToDo</p>
+        <button (click)=" closeDelete()" class="close"></button>
+    </div>
+    <div class="setDescription">
+      <p>Are you sure you want to remove this ToDo? It would be impossible to restore it afterwards</p>
+      <div class="info">{{infoDelete}}</div>
+    </div>
+    <div class="deleteDiv">
+        <button (click)="deleteTask()"  class="deleteBtn">Yes, Remove ToDo</button>
+       
+    </div>
+   </div> 
 </main>

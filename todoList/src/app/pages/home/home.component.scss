@@ -22,14 +22,18 @@ main{
     color: #30313A;
 }
 .btn{
+    width: 130px;
+    height: 50px;
     position: relative;
     justify-content: center;
     align-items: center;
+    padding: 0;
     background: linear-gradient(90deg, #38EE7E 0%, #1FA49B 100%);
     
     
 }
 .btn button{
+    display: block;
     padding-right: 10px;
     background-color: transparent;
     outline: none;
@@ -39,7 +43,8 @@ main{
     color:#fff;
     font-size: 14px;
     border: none;
-    
+    width: 100%;
+    height: 100%;
 }
 .cross{
     position: absolute;
@@ -66,33 +71,16 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 15px;
 
 }
 #check{
     width: 20%;
 }
- .checkbox{
-    display: none;
-}
- label{
-    padding-left: 40px;
-
-}
- label::before{
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #b6b6b6;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color:none;
-}
-.checkbox:checked+label::before{
-    background-color: #2CC88E;
-    background-image: url('../../../assets/check.svg');
-    background-repeat: no-repeat;
-    background-position: center center;
+.checkbox{
+ cursor: pointer;
+ width: 20px;
+ height: 20px;
 }
 .description{
     width: 65%;
@@ -108,6 +96,11 @@ main{
     justify-content: space-around;
     align-items: center;
 }
+.buttonGroup button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
 .edit{
     transition: .2s;
 }
@@ -122,4 +115,190 @@ main{
     transform: scale(1.2);
     transition: .2s;
 
+}
+.modelAdd{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-20%);
+    display: block;
+    width: 560px;
+    height: 296px;
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+}
+.head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    min-height: 50px;
+}
+.head p {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 22px;
+    color: #30313A;
+    margin-top: 50px;
+}
+.head button{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    background-color:transparent;
+    border: none;
+    background-image: url('../../../assets/close.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: .2s;
+}
+.head button:hover{
+    transition: .2s;
+    transform: scale(1.2);
+}
+.setDescription{
+    width: 70%;
+    height: 25%;
+    margin: 40px auto;
+    
+}
+.setDescription textarea {
+    resize: none;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding-left: 10px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+.saveTodoDiv{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    height: 50px;
+    background: linear-gradient(270deg, #1EA39B 0%, #38EF7D 100%);
+    box-shadow: 0px 4px 14px rgba(44, 203, 139, 0.3);
+    border-radius: 6px;
+    transition: .2s;
+}
+.saveTodo{
+    background-color:transparent;
+    border: none;
+    outline: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+.saveTodoDiv:hover{
+    transition: .2s;
+    transform: scale(1.03);
+}
+.arrow{
+    position: absolute;
+    right: 20px;
+}
+.done{
+    text-decoration: none;
+}
+.perform{
+    text-decoration: line-through
+}
+.modalEdit{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-20%);
+    display: block;
+    width: 560px;
+    height: 296px;
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+}
+.modalDelete{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-20%);
+    display: block;
+    width: 560px;
+    height: 296px;
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+}
+.setDescription p{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+}
+.setDescription .info{
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+}
+.deleteDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 50px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 6px;
+    transition: .2s;
+}
+.deleteDiv:hover{
+    background-color: rgb(255, 57, 57);
+    transition: .2s;
+}
+.deleteBtn{
+    display: block;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #30313A;
+    width: 100%;
+    height: 100%;
+}
+.deleteBtn:hover{
+    color: #FFF;
 }

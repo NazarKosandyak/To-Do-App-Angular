@@ -11,10 +11,19 @@
         "zipcode": "79071"
       },
       "id": 1
+    },
+    {
+      "name": "Tony Stark",
+      "username": "iron man",
+      "email": "asdas@fsdf.com",
+      "address": {
+        "street": "dfsfdsfds",
+        "suite": "dfsdfssdf",
+        "city": "dfdsfsdf",
+        "zipcode": "sdfsdf"
+      },
+      "id": 2
     }
   ],
-  
-  "todos":[
-
-  ]
+  "todos": []
 }
