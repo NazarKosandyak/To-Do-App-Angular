@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IUser } from 'src/app/interfaces/user.interface';
-import { UserService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   @ViewChild('emailInput') emailInput:ElementRef
   @ViewChild('phoneInput') phoneInput:ElementRef
   constructor(
-    private userService:UserService,
     private fb:FormBuilder,
     private toastr:ToastrService,
     private router:Router
@@ -28,7 +27,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.get()
     this.initForm()
-    
   }
 
   get():void{
@@ -36,7 +34,6 @@ export class LoginComponent implements OnInit {
       const response = await fetch(url)
       const data = await response.json()
       return data  
-      
     }
     function getFetch(){
       getData('http://localhost:3000/users')
@@ -57,7 +54,6 @@ export class LoginComponent implements OnInit {
       zipcode:[null,Validators.required]
     })
   }
-  // pattern('\w+@\w+.\w{0,5}')
   createUser():void{
     const user:IUser = {
       name:this.userForm.value.name,
@@ -70,8 +66,6 @@ export class LoginComponent implements OnInit {
         city:this.userForm.value.city,
         zipcode:this.userForm.value.zipcode
       }
-      
-      
     }
     
     const RegExForEmail = /\w+@\w+.\w{0,5}/

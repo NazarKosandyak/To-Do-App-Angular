@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs';
 import { ITodo } from 'src/app/interfaces/todo.interface';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-home',
@@ -20,34 +20,33 @@ export class HomeComponent implements OnInit {
   dataTask: any[] = []
   infoDelete: string;
   currentTask;
-  update: Subject<string> = new Subject()
+ 
   @ViewChild('title') title: ElementRef
   @ViewChild('checkBox') checkBox: ElementRef
   @ViewChild('labelCheck') labelCheck: ElementRef
   @ViewChild('main') main:ElementRef
   constructor(
+    private todoService:TodoService,
     private toastr: ToastrService
   ) { }
-
   ngOnInit(): void {
     this.getTask()
-    this.getUser = JSON.parse(localStorage.getItem('user'))
     this.updateTask()
   }
   getTask(): void {
     fetch('http://localhost:3000/todos')
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.dataTask = data
         this.dataTask.reverse()
       })
-
+      this.getUser = JSON.parse(localStorage.getItem('user'))
   }
   openAdd(): void {
     this.checkClose = true
   }
   add(): void {
+    this.getTask()
     if (this.dataTextarea) {
       const task: ITodo = {
         userId: this.getUser.id,
@@ -65,8 +64,8 @@ export class HomeComponent implements OnInit {
       this.showSuccess()
       this.dataTask.push(task)
       this.checkClose = false
-      this.update.next('item')
-      this.getTask()
+      this.todoService.update$.next('item')
+
     }
     else {
       this.warning('Please enter a task')
@@ -79,7 +78,7 @@ export class HomeComponent implements OnInit {
     item.completed = !item.completed
   }
   editTask(item): void {
-    console.log(item);
+    this.getTask()
     this.checkEdit = true
     this.newTask = item.title
     this.editItem = item
@@ -106,8 +105,11 @@ export class HomeComponent implements OnInit {
         .then(response => response.json())
         .then(json => console.log(json))
       this.getTask()
-      this.update.next('item')
+      this.todoService.update$.next('item')
       this.checkEdit = false
+    }
+    else{
+      this.warning('Please enter a new task')
     }
   }
 
@@ -124,13 +126,11 @@ export class HomeComponent implements OnInit {
       method: 'DELETE',
     });
     this.getTask()
-    this.update.next('item')
+    this.todoService.update$.next('item')
     this.checkDelete = false
-    console.log(this.currentTask);
     document.body.style.background = 'white'
     this.main.nativeElement.style.background = 'white'
-    
-    
+
   }
   closeDelete(): void {
     this.checkDelete = false
@@ -138,7 +138,7 @@ export class HomeComponent implements OnInit {
     this.main.nativeElement.style.background = 'white'
   }
   updateTask(): void {
-    this.update.subscribe(() => {
+    this.todoService.update$.subscribe(() => {
       this.getTask()
     })
   }

@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "name": "Nazar",
-      "username": "zimmer",
+      "name": "nazar",
+      "username": "dfgdfg",
       "email": "nazarkosandyak@gmail.com",
       "address": {
         "street": "Ukraine",
@@ -13,17 +13,30 @@
       "id": 1
     },
     {
-      "name": "Tony Stark",
-      "username": "iron man",
+      "name": "test",
+      "username": "test",
       "email": "asdas@fsdf.com",
       "address": {
-        "street": "dfsfdsfds",
-        "suite": "dfsdfssdf",
-        "city": "dfdsfsdf",
-        "zipcode": "sdfsdf"
+        "street": "Ukraine",
+        "suite": "dasd",
+        "city": "Lviv",
+        "zipcode": "79071"
       },
       "id": 2
     }
   ],
-  "todos": []
+  "todos": [
+    {
+      "userId": 1,
+      "title": "fdsfdfsdsf",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "title": "test test",
+      "completed": false,
+      "id": 2
+    }
+  ]
 }
