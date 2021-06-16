@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "name": "nazar",
-      "username": "dfgdfg",
+      "name": "Nazar Kosandiak",
+      "username": "zimmer",
       "email": "nazarkosandyak@gmail.com",
       "address": {
         "street": "Ukraine",
@@ -13,30 +13,29 @@
       "id": 1
     },
     {
-      "name": "test",
+      "name": "Test",
       "username": "test",
       "email": "asdas@fsdf.com",
+      "address": {
+        "street": "dfsfdsfds",
+        "suite": "dfsdfssdf",
+        "city": "dfdsfsdf",
+        "zipcode": "sdfsdf"
+      },
+      "id": 2
+    },
+    {
+      "name": "dfsdfs",
+      "username": "dfsdsffds",
+      "email": "nazarkosandyak@gmail.com",
       "address": {
         "street": "Ukraine",
         "suite": "dasd",
         "city": "Lviv",
         "zipcode": "79071"
       },
-      "id": 2
+      "id": 3
     }
   ],
-  "todos": [
-    {
-      "userId": 1,
-      "title": "fdsfdfsdsf",
-      "completed": false,
-      "id": 1
-    },
-    {
-      "userId": 2,
-      "title": "test test",
-      "completed": false,
-      "id": 2
-    }
-  ]
+  "todos": []
 }

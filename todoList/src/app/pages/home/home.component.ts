@@ -83,6 +83,7 @@ export class HomeComponent implements OnInit {
     this.newTask = item.title
     this.editItem = item
     this.taskId = item.id
+    
   }
   closeEdit(): void {
     this.checkEdit = false
